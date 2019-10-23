@@ -9,7 +9,7 @@ const forecast = (lat, long, callback) => {
     } else if(body.error){
       callback("Unable to fetch valid location. Please try another one.", undefined)
     } else{
-      callback(undefined, body.daily.data[0].summary + " Trenutna temperatura iznosi " + body.currently.temperature + " stepeni Celzijusa. Šansa za padavine je " + body.currently.precipProbability + "%.")
+      callback(undefined, body.daily.data[0].summary + " Trenutna temperatura iznosi " + body.currently.temperature + " stepeni Celzijusa. Šansa za padavine je " + body.currently.precipProbability + "%. Nivo ozona: " + body.daily.data[0].ozone + ", a maksimalna dnevna temperatura iznosi " + body.daily.data[0].temperatureMax + "C°")
     }
   })
 }
