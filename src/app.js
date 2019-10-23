@@ -8,6 +8,9 @@ const forecast = require("./utils/forecast")
 
 const app = express()
 
+// Definisanje porta pri deploymentu na Heroku, jer ne mogu koristiti statični port, tipa 3000, već moram integrisati port koji mi Heroku dodijeli
+const port = process.env.PORT || 3000
+
 // Konstanta za path do public foldera putem "path" package-a
 const publicPath = path.join(__dirname, "../public")
 
@@ -99,6 +102,6 @@ app.get('*', (req, res) => {
   })
 })
 
-app.listen(3000, () => {
-  console.log("Started me up.")
+app.listen(port, () => {
+  console.log("Application is running succesfully on port " + port)
 })
